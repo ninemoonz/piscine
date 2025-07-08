@@ -6,7 +6,7 @@
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:27:46 by koodal            #+#    #+#             */
-/*   Updated: 2025/07/07 11:50:26 by koodal           ###   ########.fr       */
+/*   Updated: 2025/07/08 15:57:40 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ int main(void)
     printf("original number: %i\n", nbr);
     ft_ultimate_ft(nbr9);
     printf("after passing in to a function: %i\n", nbr);
+
     printf("address of nbr: %p\n", &nbr);
     printf("nbr1 stores address of nbr which is: %p\n", nbr1);
     printf("address of nbr1: %p\n", &nbr1);
+    printf("nbr2 stores address of nbr1 which is: %p\n", nbr2);
     printf("address of nbr2: %p\n", &nbr2);
     printf("address of nbr3: %p\n", &nbr3);
     printf("address of nbr4: %p\n", &nbr4);
