@@ -1,45 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 11:14:58 by koodal            #+#    #+#             */
-/*   Updated: 2025/07/09 11:20:00 by koodal           ###   ########.fr       */
+/*   Created: 2025/07/21 13:27:35 by koodal            #+#    #+#             */
+/*   Updated: 2025/07/21 13:39:13 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-int ft_str_is_numeric(char *str)
+int ft_strlen(char *str)
 {
     int i;
-    
-    if (str[0] == '\0')
-    {
-        return (-1);
-    }
+
     i = 0;
-    while (str[i])
+    while (str[i] != '\0')
     {
-        if (str[i] >= '0' && str[i] <= '9')
-        {
-            i++;
-        }
-        else
-        {
-            return (0);
-        }
+        i++;
     }
-    return (1);
+    return (i);
+}
+
+void ft_putstr(char *str)
+{
+    int i;
+    int strlen;
+
+    i = 0;
+    strlen = ft_strlen(str);
+    write(1, str, strlen);
 }
 
 int main(void)
 {
-    char numArr[] = "12345467a89123";
-    int checker = ft_str_is_numeric(numArr);
-    printf("%i", checker);
+    char str[] = "Hello World. What should I have for dinner today?";
+    ft_putstr(str);
     return (0);
 }

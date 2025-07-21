@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 11:14:58 by koodal            #+#    #+#             */
-/*   Updated: 2025/07/09 11:20:00 by koodal           ###   ########.fr       */
+/*   Created: 2025/07/16 12:53:17 by koodal            #+#    #+#             */
+/*   Updated: 2025/07/17 16:44:13 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 
-int ft_str_is_numeric(char *str)
+// unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
+// {
+// }
+
+void ft_strlcat_check(char *dest, char *src, unsigned int size)
 {
-    int i;
-    
-    if (str[0] == '\0')
-    {
-        return (-1);
-    }
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] >= '0' && str[i] <= '9')
-        {
-            i++;
-        }
-        else
-        {
-            return (0);
-        }
-    }
-    return (1);
+    printf("%lu", strlcat(dest, src, size));
 }
 
 int main(void)
 {
-    char numArr[] = "12345467a89123";
-    int checker = ft_str_is_numeric(numArr);
-    printf("%i", checker);
+    char src[] = "Hello World";
+    char dest[] = "Nice to meet you";
+
+    ft_strlcat_check(dest, src, 4);
     return (0);
 }

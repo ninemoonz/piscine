@@ -1,45 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 11:14:58 by koodal            #+#    #+#             */
-/*   Updated: 2025/07/09 11:20:00 by koodal           ###   ########.fr       */
+/*   Created: 2025/07/10 14:54:30 by koodal            #+#    #+#             */
+/*   Updated: 2025/07/10 15:45:47 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-int ft_str_is_numeric(char *str)
+char *ft_strcapitalize(char *str)
 {
     int i;
-    
-    if (str[0] == '\0')
-    {
-        return (-1);
-    }
+
     i = 0;
-    while (str[i])
+    if (str[i] >= 'a' && str[i] <= 'z')
     {
-        if (str[i] >= '0' && str[i] <= '9')
-        {
-            i++;
-        }
-        else
-        {
-            return (0);
-        }
+        str[i] = str[i] - ('a' - 'A');
+        i++;
     }
-    return (1);
+    while (str[i] != '\0')
+    {
+        if ((str[i] == ' ') && (str[i + 1] >= 'a' && str[i + 1] <= 'z'))
+        {
+            str[i + 1] = str[i + 1] - ('a' - 'A');
+        }
+        i++;
+    }
+    return (str);
 }
 
 int main(void)
 {
-    char numArr[] = "12345467a89123";
-    int checker = ft_str_is_numeric(numArr);
-    printf("%i", checker);
+    char str[] = "capitalize this sentence. can you?";
+    ft_strcapitalize(str);
+    printf("%s", str);
     return (0);
 }
