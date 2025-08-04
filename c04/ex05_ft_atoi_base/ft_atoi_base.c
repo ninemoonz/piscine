@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 15:49:04 by koodal            #+#    #+#             */
-/*   Updated: 2025/08/01 17:51:21 by koodal           ###   ########.fr       */
+/*   Created: 2025/08/01 17:44:18 by koodal            #+#    #+#             */
+/*   Updated: 2025/08/01 17:54:16 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,37 @@ int ft_strlen(char *base)
         i++;
     }
     return (i);
+}
+
+int ft_atoi(char *str)
+{
+    int i;
+    int neg_flag;
+    int num_convert;
+
+    i = 0;
+    neg_flag = 1;
+    num_convert = 0;
+
+    while (str[i])
+    {
+        if (str[i] >= 9 && str[i] <= 13 || (str[i] == ' '))
+            i++;
+        else if (str[i] == '-')
+            neg_flag = neg_flag * -1;
+        else if (str[i] == '+')
+            i++;
+        else if (str[i] >= '0' && str[i] <= '9')
+        {
+            num_convert = (num_convert * 10) + str[i] - 48;
+        }
+        else
+        {
+            return (num_convert * neg_flag);
+        }
+        i++;
+    }
+    return (num_convert * neg_flag);
 }
 
 void ft_putnbr_base(int nbr, char *base)
@@ -66,15 +97,22 @@ void ft_putnbr_base(int nbr, char *base)
     printf("%c", *base);
 }
 
+void ft_atoi_base(char *str, char *base)
+{
+    int atoi_value;
+
+    atoi_value = ft_atoi(str);
+    ft_putnbr_base(atoi_value, base);
+}
+
 int main(void)
 {
-    int nbr;
+    char str[] = "   +-----123abc";
     char decimal[] = "0123456789";
     char binary[] = "10";
     char hex[] = "0123456789abcdef";
     char octal[] = "poneyvif";
 
-    nbr = 42;
-    ft_putnbr_base(nbr, binary);
+    ft_atoi_base(str, hex);
     return (0);
 }
