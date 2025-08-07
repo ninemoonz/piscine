@@ -6,7 +6,7 @@
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:39:17 by koodal            #+#    #+#             */
-/*   Updated: 2025/08/07 14:29:23 by koodal           ###   ########.fr       */
+/*   Updated: 2025/08/07 15:59:22 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 int ft_fibonacci(int index)
 {
+    if (index < 0)
+    {
+        return (-1);
+    }
     if (index == 0)
     {
         return (0);
