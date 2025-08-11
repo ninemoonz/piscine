@@ -1,43 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 13:18:55 by koodal            #+#    #+#             */
-/*   Updated: 2025/08/05 15:38:39 by koodal           ###   ########.fr       */
+/*   Created: 2025/08/09 17:36:55 by koodal            #+#    #+#             */
+/*   Updated: 2025/08/11 13:47:41 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-int ft_recursive_power(int nb, int power)
+int ft_find_next_prime(int nb)
 {
-    int result;
+    int i;
 
-    if (nb == 0 || power < 0)
+    if (nb == 0 || nb == 1)
     {
         return (0);
     }
-    if (power == 0)
+    if (nb == 2)
     {
         return (1);
     }
-    result = nb * ft_recursive_power(nb, (power - 1));
-    return (result);
+    i = 2;
+    while (i < nb)
+    {
+        if (nb % i == 0)
+        {
+            return (0);
+        }
+        i++;
+    }
 }
 
 int main(void)
 {
-    int n;
-    int p;
+    int nb;
     int result;
 
-    n = 2;
-    p = 3;
-    result = ft_recursive_power(n, p);
-    printf("%d", result);
+    nb = 6;
+    result = ft_find_next_prime(nb);
+    printf("next prime: %d", result);
     return (0);
 }
