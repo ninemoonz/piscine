@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   ft_ten_queens_puzzle.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/14 16:22:48 by koodal            #+#    #+#             */
-/*   Updated: 2025/08/15 10:32:32 by koodal           ###   ########.fr       */
+/*   Created: 2025/08/12 15:26:24 by koodal            #+#    #+#             */
+/*   Updated: 2025/08/12 15:29:46 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
+#include <stdio.h>
 
-void ft_putchar(char c)
+int ft_ten_queens_puzzle(void)
 {
-    write(1, &c, 1);
+    
 }
 
-int main(int argc, char **argv)
+int main(void)
 {
-    int i;
-    int j;
+    int result;
 
-    i = argc - 1;
-    while (i >= 1)
-    {
-        j = 0;
-        while (argv[i][j] != '\0')
-        {
-            ft_putchar(argv[i][j]);
-            j++;
-        }
-        ft_putchar('\n');
-        i--;
-    }
+    result = ft_ten_queens_puzzle();
+    printf("%d", result);
     return (0);
 }

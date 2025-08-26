@@ -29,7 +29,10 @@ void ft_putstr(char *str)
         i++;
     }
 }
-
+/* 
+1. argv is an array of char *
+2. 
+*/
 void ft_swap(char **a, char **b)
 {
     char *temp;
